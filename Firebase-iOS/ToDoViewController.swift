@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class ToDoTableViewController: UITableViewController {
     
-    let FIREBASE_TABLENAME = "todo"
+    var FIREBASE_TABLENAME: String!
     
     fileprivate var refHandle: FIRDatabaseHandle!
     var ref: FIRDatabaseReference!

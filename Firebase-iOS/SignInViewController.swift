@@ -43,8 +43,10 @@ class SignInViewController: UIViewController {
     
     func handleSignedInUser(user: FIRUser) {
         DispatchQueue.main.async {
-            let todoVC = self.storyboard!.instantiateViewController(withIdentifier: "HomeNavigationController")
-            self.present(todoVC, animated: true, completion: nil)
+            let todoVCNavigationVC = self.storyboard!.instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
+            let todoVC = todoVCNavigationVC.topViewController as! ToDoTableViewController
+            todoVC.FIREBASE_TABLENAME = "todo/\(user.uid)"
+            self.present(todoVCNavigationVC, animated: true, completion: nil)
         }        
     }
     
